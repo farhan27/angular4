@@ -10,8 +10,12 @@
 </ul>
 
 <button class="waves-effect waves-light btn" (click)="onClick()">Click Me</button>
+<button class="waves-effect waves-light btn" (click)="toggleEdit()">Edit User</button>
 
-<h1>Edit User</h1>
+
+
+<div *ngIf=isEdit>
+  <h1>Edit User</h1>
 <form>
   <div class="row">
     <label for="name">Name : </label>
@@ -26,6 +30,8 @@
     <input type="text" [(ngModel)]="email" name="email">
   </div>
 </form>
+</div>
+
 
 <h1>Hobbies</h1>
 <div class="row">
@@ -43,3 +49,9 @@
     {{i+1}} : {{hobby}} <button class="waves-effect waves-light btn" (click)="deleteHobby(hobby)">X</button>
   </li>
 </ul>
+
+<h1>Posts</h1>
+<div *ngFor="let post of posts">
+  <h4>{{post.title}}</h4>
+  <p> {{post.body}} </p>
+</div>
